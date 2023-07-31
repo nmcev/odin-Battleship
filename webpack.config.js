@@ -11,7 +11,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: ['node_modules'],
+        exclude: /node_modules/, // Change this line to use a regular expression instead of an array
         use: ['babel-loader'],
       },
       {
@@ -26,20 +26,11 @@ module.exports = {
         test: /\.(ttf|eot|svg)$/,
         type: 'asset/resource',
       },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
-      },
-
     ],
   },
   resolve: {
     alias: {
       config$: './configs/app-config.js',
-      react: './vendor/react-master',
     },
     extensions: ['.js', '.jsx'],
     modules: [
