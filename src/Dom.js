@@ -3,7 +3,7 @@ export const playerBoard = document.getElementById('playerBoard'); // Assuming t
 const content = document.getElementById('content');
 const body = document.querySelector('body')
 
-export function renderGameBoard(elementToAppend) {
+export function renderGameBoardOF(elementToAppend) {
     // TODO: Render the game board here.
     let totalCells = 9 * 9
     for (let i = 0; i < totalCells; i += 1) {

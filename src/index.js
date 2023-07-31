@@ -1,3 +1,3 @@
-import { playerBoard, computerBoard, renderGameBoard } from "./Dom";
-renderGameBoard(playerBoard)
-renderGameBoard(computerBoard)
+import { playerBoard, computerBoard, renderGameBoardOF } from "./Dom";
+renderGameBoardOF(playerBoard)
+renderGameBoardOF(computerBoard)
