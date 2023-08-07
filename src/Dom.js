@@ -4,7 +4,6 @@ const content = document.getElementById('content');
 const body = document.querySelector('body')
 
 export function renderGameBoardOF(elementToAppend) {
-    // TODO: Render the game board here.
     let totalCells = 9 * 9
     for (let i = 0; i < totalCells; i += 1) {
         let cell = document.createElement('div')
@@ -20,13 +19,13 @@ export function renderGameBoardOF(elementToAppend) {
         cell.style.border = "1px solid black"
         cell.style.display = "inline-block"
         cell.style.float = 'left';
-        cell.style.cursor= 'pointer';
+        cell.style.cursor = 'pointer';
 
         elementToAppend.appendChild(cell);
     }
 }
 
-function stylingBoards() {
+export function stylingBoards() {
     body.style.height = '100vh'
     body.style.margin = '0'
     content.style.backgroundColor = '#F6F4EB'
@@ -39,4 +38,15 @@ function stylingBoards() {
     computerBoard.style.maxWidth = '500px'
 
 }
-stylingBoards()
+
+export function markCell(cell, hit) {
+    if (hit) {
+        cell.style.backgroundColor = 'red'; // hit
+    } else {
+        cell.style.backgroundColor = 'black'; // missed
+    }
+
+}
+
+renderGameBoardOF(playerBoard);
+export const playerBoardDiv = document.querySelectorAll("#playerBoard > div");
