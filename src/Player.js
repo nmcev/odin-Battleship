@@ -1,7 +1,8 @@
-import { createGameboard } from './Gameboard'
+import { createGameboard } from './Gameboard';
+
 export class Player {
     constructor() {
-        this.gameBoard = createGameboard();
+        this.gameboard = new createGameboard()
         this.playedCoordinates = []; // Keep track of coordinates already played
     }
 
@@ -12,10 +13,9 @@ export class Player {
             y = Math.floor(Math.random() * 10);
         } while (this.isCoordinatePlayed(x, y));
 
-        this.playedCoordinates.push({ x, y }); // Record the new coordinates
+        this.playedCoordinates.push({ x, y })
         return { x, y };
     }
-
 
     isCoordinatePlayed(x, y) {
         for (const coord of this.playedCoordinates) {
@@ -27,7 +27,8 @@ export class Player {
     }
 
     takeTurn(enemyGameboard) {
-        const { row, col } = this.randomPlay();
-        enemyGameboard.receiveAttack(row, col);
+        const { x, y } = this.randomPlay();
+        const isSuccessful = enemyGameboard.receiveAttack(x, y);
+        return { x, y, isSuccessful };
     }
 }
