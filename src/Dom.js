@@ -19,8 +19,6 @@ export function renderGameBoardOF(elementToAppend) {
         cell.style.border = "1px solid black"
         cell.style.display = "inline-block"
         cell.style.float = 'left';
-        cell.style.cursor = 'pointer';
-
         elementToAppend.appendChild(cell);
     }
 }
@@ -47,6 +45,13 @@ export function markCell(cell, hit) {
     }
 
 }
-
+export function markComputerCell(board, index, hit) {
+    if (hit) {
+        board[index].style.backgroundColor = 'red';//hit
+    }
+    else {
+        board[index].style.backgroundColor = '#333';
+    }
+}
 renderGameBoardOF(playerBoard);
 export const playerBoardDiv = document.querySelectorAll("#playerBoard > div");
