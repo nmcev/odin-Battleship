@@ -4,11 +4,11 @@ const content = document.getElementById('content');
 const body = document.querySelector('body')
 
 export function renderGameBoardOF(elementToAppend) {
-    let totalCells = 9 * 9
+    let totalCells = 10 * 10
     for (let i = 0; i < totalCells; i += 1) {
         let cell = document.createElement('div')
-        const row = Math.floor(i / 9);
-        const col = i % 9;
+        const row = Math.floor(i / 10);
+        const col = i % 10;
 
         cell.dataset.row = row;
         cell.dataset.col = col;
@@ -34,8 +34,8 @@ export function stylingBoards() {
     content.style.alignItems = 'center'
     content.style.height = '100vh'
     content.style.gap = '1.82rem'
-    playerBoard.style.maxWidth = '500px'
-    computerBoard.style.maxWidth = '500px'
+    playerBoard.style.maxWidth = '550px'
+    computerBoard.style.maxWidth = '550px'
 
 }
 
