@@ -2,6 +2,7 @@ export const computerBoard = document.getElementById('computerBoard')
 export const playerBoard = document.getElementById('playerBoard'); // Assuming there's an element with the ID 'player-board' in the HTML file
 const content = document.getElementById('content');
 const body = document.querySelector('body')
+import backgroundImage from '../assets/resource/background.jpg';
 
 export function renderGameBoardOF(elementToAppend) {
     let totalCells = 10 * 10
@@ -26,7 +27,7 @@ export function renderGameBoardOF(elementToAppend) {
 export function stylingBoards() {
     body.style.height = '100vh'
     body.style.margin = '0'
-    content.style.backgroundColor = '#F6F4EB'
+    body.style.backgroundImage = `url(${backgroundImage})`
     content.style.display = 'flex'
     content.style.justifyContent = 'center'
     content.style.alignItems = 'center'
@@ -53,5 +54,3 @@ export function markComputerCell(board, index, hit) {
         board[index].style.backgroundColor = '#333';
     }
 }
-renderGameBoardOF(playerBoard);
-export const playerBoardDiv = document.querySelectorAll("#playerBoard > div");
