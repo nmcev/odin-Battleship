@@ -12,7 +12,7 @@ export class createGameboard {
     }
   }
 
-  placeShipAt(x, y, length) {
+  placeShipAt(x, y, length, isHorizontal = true) {
     const newShip = new Ship(length);
 
     if (x < 0 || x >= 10 || y < 0 || y >= 10) {
@@ -20,13 +20,25 @@ export class createGameboard {
       return;
     }
 
-    if (this.array10x10[x][y] !== null) {
-      console.log("Cannot place a ship twice");
-      return;
+    for (let i = 0; i < length; i++) {
+      const targetX = isHorizontal ? x + i : x;
+      const targetY = isHorizontal ? y : y + i;
+
+      if (targetX >= 10 || targetY >= 10 || this.array10x10[targetX][targetY] !== null) {
+        console.log("Cannot place a ship here");
+        return false;
+      }
     }
 
-    this.array10x10[x][y] = newShip;
+    for (let i = 0; i < length; i++) {
+      const targetX = isHorizontal ? x + i : x;
+      const targetY = isHorizontal ? y : y + i;
+
+      this.array10x10[targetX][targetY] = newShip;
+    }
+
     this.ships.push(newShip);
+    return true;
   }
 
   receiveAttack(x, y) {
@@ -49,15 +61,5 @@ export class createGameboard {
 
   checkingBoard() {
     return this.ships.every(ship => ship.isSunk());
-  }
-
-  displayMissedAttacks() {
-    if (this.missedAttack.length !== 0) {
-      console.log('Missed Attacks:');
-      for (const missed of this.missedAttack) {
-        return console.log(`(${missed.x}, ${missed.y})`);
-      }
-    }
-    return "No Missing Attack"
   }
 }
