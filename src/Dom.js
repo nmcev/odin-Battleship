@@ -3,8 +3,11 @@ export const playerBoard = document.getElementById('playerBoard'); // Assuming t
 const content = document.getElementById('content');
 const body = document.querySelector('body')
 const header = document.querySelector('#header')
-import backgroundImage from '../assets/resource/background.jpg';
-import shipImage from '../assets/resource/ship.svg'
+import backgroundImage from '../assets/resource/background.svg';
+import shipImage from '../assets/resource/ship.svg';
+import skullImage from '../assets/resource/skull.svg';
+import crossMark from '../assets/resource/cross.svg';
+
 
 export function renderGameBoardOF(elementToAppend) {
     let totalCells = 10 * 10
@@ -19,7 +22,7 @@ export function renderGameBoardOF(elementToAppend) {
 
         cell.style.width = "50px"
         cell.style.height = "50px"
-        cell.style.border = "1px solid black"
+        cell.style.border = "1px solid #eee"
         cell.style.display = "inline-block"
         cell.style.float = 'left';
         elementToAppend.appendChild(cell);
@@ -29,7 +32,9 @@ export function renderGameBoardOF(elementToAppend) {
 export function stylingBoards() {
     body.style.height = '100vh'
     body.style.margin = '0'
-    body.style.backgroundImage = `url(${backgroundImage})`
+    body.style.backgroundImage = `url(${backgroundImage})`;
+    body.style.backgroundSize = "cover";
+
     content.style.display = 'flex'
     content.style.justifyContent = 'center'
     content.style.alignItems = 'center'
@@ -42,18 +47,22 @@ export function stylingBoards() {
 
 export function markCell(cell, hit) {
     if (hit) {
-        cell.style.backgroundColor = 'red'; // hit
+        cell.style.backgroundImage = `url(${skullImage})`;
+        cell.style.backgroundSize = "cover";
+
     } else {
-        cell.style.backgroundColor = 'black'; // missed
+        cell.style.backgroundImage = `url(${crossMark})`
+        cell.style.backgroundSize = "cover";
     }
 
 }
 export function markComputerCell(board, index, hit) {
     if (hit) {
-        board[index].style.backgroundColor = 'red';//hit
+        board[index].style.backgroundImage = `url(${skullImage})`;
     }
     else {
-        board[index].style.backgroundColor = '#333';
+        board[index].style.backgroundImage = `url(${crossMark})`;
+        board[index].style.backgroundSize = "cover";
     }
 }
 
