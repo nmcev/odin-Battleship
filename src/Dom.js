@@ -2,7 +2,9 @@ export const computerBoard = document.getElementById('computerBoard')
 export const playerBoard = document.getElementById('playerBoard'); // Assuming there's an element with the ID 'player-board' in the HTML file
 const content = document.getElementById('content');
 const body = document.querySelector('body')
+const header = document.querySelector('#header')
 import backgroundImage from '../assets/resource/background.jpg';
+import shipImage from '../assets/resource/ship.svg'
 
 export function renderGameBoardOF(elementToAppend) {
     let totalCells = 10 * 10
@@ -65,7 +67,8 @@ export function updatePlayerBoardDOM(gameboard) {
 
         const ship = gameboard[row][col];
         if (ship !== null) {
-            cell.style.backgroundColor = "#333"
+            cell.style.backgroundImage = `url(${shipImage})`
+            cell.style.backgroundSize = "cover";
         }
     }
 }
