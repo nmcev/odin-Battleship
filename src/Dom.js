@@ -72,3 +72,69 @@ export function updatePlayerBoardDOM(gameboard) {
         }
     }
 }
+
+
+export const horizontalButton = document.createElement('input');
+export const verticalButton = document.createElement('input');
+
+export function renderButtonForOrientation() {
+    const orientationContainer = document.createElement('div');
+
+    // Horizontal button
+    horizontalButton.setAttribute('type', 'radio');
+    horizontalButton.setAttribute('value', 'horizontal');
+    orientationContainer.appendChild(horizontalButton);
+
+    const horizontalLabel = document.createElement('label');
+    horizontalLabel.textContent = "Horizontal";
+    orientationContainer.appendChild(horizontalLabel);
+
+    // Vertical button
+    verticalButton.setAttribute('type', 'radio');
+    verticalButton.setAttribute('value', 'vertical');
+    orientationContainer.appendChild(verticalButton);
+
+    const verticalLabel = document.createElement('label');
+    verticalLabel.textContent = "Vertical";
+    orientationContainer.appendChild(verticalLabel);
+
+    header.appendChild(orientationContainer);
+
+    // Style for button and label
+    orientationContainer.style.display = 'flex';
+    orientationContainer.style.alignItems = 'center';
+    orientationContainer.style.marginRight = '10px';
+
+    const buttonStyle = 'margin-right: 5px; cursor: pointer;';
+    horizontalButton.style = buttonStyle;
+    verticalButton.style = buttonStyle;
+
+    // Initial orientation
+    let currentOrientation = 'horizontal';
+
+
+    // Set initial orientation
+    horizontalButton.checked = (currentOrientation === 'horizontal');
+    verticalButton.checked = (currentOrientation === 'vertical');
+
+
+    // Add change event listener to handle selection
+    horizontalButton.addEventListener('change', () => {
+        if (horizontalButton.checked) {
+            console.log("Orientation: Horizontal");
+            currentOrientation = 'horizontal';
+            verticalButton.checked = false;
+        }
+
+    });
+
+    verticalButton.addEventListener('change', () => {
+        if (verticalButton.checked) {
+            console.log("Orientation: Vertical");
+            currentOrientation = 'vertical';
+            horizontalButton.checked = false;
+        }
+    });
+
+}
+renderButtonForOrientation();
