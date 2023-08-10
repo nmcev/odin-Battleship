@@ -54,3 +54,18 @@ export function markComputerCell(board, index, hit) {
         board[index].style.backgroundColor = '#333';
     }
 }
+
+export function updatePlayerBoardDOM(gameboard) {
+    const boardCells = playerBoard.querySelectorAll('.cell');
+
+    for (let i = 0; i < boardCells.length; i++) {
+        const row = Math.floor(i / 10);
+        const col = i % 10;
+        const cell = boardCells[i];
+
+        const ship = gameboard[row][col];
+        if (ship !== null) {
+            cell.style.backgroundColor = "#333"
+        }
+    }
+}
