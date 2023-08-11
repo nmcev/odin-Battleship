@@ -11,6 +11,20 @@ export class createGameboard {
       this.array10x10.push(newRow);
     }
   }
+  placeShipsRandomly(shipLength) {
+    for (length of shipLength) {
+      console.log(length)
+      let isPlaced = false;
+      while (!isPlaced) {
+        const row = Math.floor(Math.random() * 10)
+        const col = Math.floor((Math.random()) * 10)
+        const isHorizontal = Math.random() < 0.5
+        if (this.placeShipAt(row, col, length, isHorizontal)) {
+          isPlaced = true;
+        }
+      }
+    }
+  }
 
   placeShipAt(x, y, length, isHorizontal = true) {
     const newShip = new Ship(length);
