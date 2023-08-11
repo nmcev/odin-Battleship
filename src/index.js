@@ -13,3 +13,9 @@ const computerGameboard = new createGameboard();
 // Step 3: Render game boards
 renderGameBoardOF(playerBoard);
 renderGameBoardOF(computerBoard);
+
+// getting cells
+const computerCells = document.querySelectorAll('#computerBoard > .cell');
+const playerBoardDiv = document.querySelectorAll("#playerBoard > .cell");
+computerBoard.style.cursor = "pointer"
+stylingBoards();
