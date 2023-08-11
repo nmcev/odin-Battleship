@@ -86,16 +86,17 @@ export function updatePlayerBoardDOM(gameboard) {
 
 export const horizontalButton = document.createElement('input');
 export const verticalButton = document.createElement('input');
+const orientationContainer = document.createElement('div');
+const horizontalLabel = document.createElement('label');
+const verticalLabel = document.createElement('label');
 
 export function renderButtonForOrientation() {
-    const orientationContainer = document.createElement('div');
 
     // Horizontal button
     horizontalButton.setAttribute('type', 'radio');
     horizontalButton.setAttribute('value', 'horizontal');
     orientationContainer.appendChild(horizontalButton);
 
-    const horizontalLabel = document.createElement('label');
     horizontalLabel.textContent = "Horizontal";
     orientationContainer.appendChild(horizontalLabel);
 
@@ -104,7 +105,6 @@ export function renderButtonForOrientation() {
     verticalButton.setAttribute('value', 'vertical');
     orientationContainer.appendChild(verticalButton);
 
-    const verticalLabel = document.createElement('label');
     verticalLabel.textContent = "Vertical";
     orientationContainer.appendChild(verticalLabel);
 
@@ -167,6 +167,59 @@ function topicSection() {
     topic.style.fontWeight = '700';
     topic.style.color = "#cccc00";
 }
+
+function mediaQuery(vw) {
+    const cells = document.querySelectorAll('.cell');
+    if (vw.matches) {
+        cells.forEach(cell => {
+            cell.style.width = "22px";
+            cell.style.height = "22px";
+            cell.style.border = "1px solid #eee";
+            cell.style.display = "inline-block";
+            cell.style.float = 'left';
+            computerBoard.style.width = '250px';
+            computerBoard.style.height = '250px';
+            playerBoard.style.width = '250px';
+            playerBoard.style.height = '250px';
+            content.style.gap = '1rem';
+            content.style.display = 'flex'
+            content.style.justifyContent = 'center'
+            content.style.alignItems = 'center'
+            content.style.flexDirection = 'column';
+            header.style.marginRight = '0';
+
+        });
+    } else {
+        cells.forEach(cell => {
+
+            cell.style.width = "50px";
+            cell.style.height = "50px";
+            cell.style.border = "1px solid #eee";
+            cell.style.display = "inline-block";
+            cell.style.float = 'left';
+            // ... reset other cell styles
+
+            // Reset board sizes
+            computerBoard.style.width = ''; // Reset to original size (unset width)
+            computerBoard.style.height = ''; // Reset to original size (unset height)
+            playerBoard.style.width = ''; // Reset to original size (unset width)
+            playerBoard.style.height = ''; // Reset to original size (unset height)
+
+            // Reset content layout
+            content.style.gap = '1.82rem';
+            content.style.display = 'flex';
+            content.style.justifyContent = 'center';
+            content.style.alignItems = 'center';
+            content.style.flexDirection = '';
+            header.style.marginRight = '60rem';
+        });
+    }
+}
+
+// Create the media query
+const vw = window.matchMedia("(max-width: 481px)");
+vw.addEventListener('change', mediaQuery);
+mediaQuery(vw)
 
 topicSection();
 renderButtonForOrientation();
