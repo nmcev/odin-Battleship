@@ -3,7 +3,7 @@
     src: url('../assets/resource/font.ttf');
 }
 
-#topic {
+#topic,
+#header {
     font-family: myFont;
-    color:#cccc00!important ;
 }
