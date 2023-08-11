@@ -165,7 +165,10 @@ function topicSection() {
     topic.style.marginBottom = '4rem';
     topic.style.fontSize = '3rem';
     topic.style.fontWeight = '700';
-    topic.style.color = "#d0d0d0";
+    topic.style.color = "#cccc00";
 }
+header.style.fontSize = '2rem';
+header.style.color = '#eee';
+header.style.fontWeight = 'bold';
 topicSection();
 renderButtonForOrientation();
