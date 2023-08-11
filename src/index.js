@@ -98,3 +98,5 @@ playerBoardDiv.forEach(cell => {
         }
     });
 });
+
+computerGameboard.placeShipsRandomly(shipLengths);
