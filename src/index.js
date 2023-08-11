@@ -41,11 +41,15 @@ computerCells.forEach(cell => {
                 markCell(cell, false);
                 computerBoard.style.pointerEvents = "none";
                 header.textContent = "Computer Turn";
+                header.style.fontSize = '1.8rem';
+                header.style.color = '#eee';
+                header.style.fontWeight = 'bold';
                 setTimeout(computerTurn, 1000);
             }
         } else {
             alert("Not enough ships to attack!")
         }
+
     }, { once: true });
 });
 
@@ -91,7 +95,6 @@ playerBoardDiv.forEach(cell => {
 
                 if (currentShipIndex === shipLengths.length) {
                     isPlacingShips = false;
-                    console.log(playerGameboard.ships)
                 }
             } else {
                 console.log(`Cannot place ship at (${row}, ${col})`);

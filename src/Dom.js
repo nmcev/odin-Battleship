@@ -167,8 +167,6 @@ function topicSection() {
     topic.style.fontWeight = '700';
     topic.style.color = "#cccc00";
 }
-header.style.fontSize = '2rem';
-header.style.color = '#eee';
-header.style.fontWeight = 'bold';
+
 topicSection();
 renderButtonForOrientation();
