@@ -1,5 +1,5 @@
 import { Player } from './Player';
-import { renderGameBoardOF, stylingBoards, computerBoard, playerBoard, markCell, markComputerCell, updatePlayerBoardDOM, horizontalButton, verticalButton } from './Dom';
+import { renderGameBoardOF, stylingBoards, computerBoard, playerBoard, markCell, markComputerCell, updatePlayerBoardDOM, horizontalButton, verticalButton, header } from './Dom';
 import { createGameboard } from './Gameboard';
 
 // Step 1: Create players
@@ -40,6 +40,7 @@ computerCells.forEach(cell => {
             } else {
                 markCell(cell, false);
                 computerBoard.style.pointerEvents = "none";
+                header.textContent = "Computer Turn";
                 setTimeout(computerTurn, 1000);
             }
         } else {
@@ -68,6 +69,7 @@ function computerTurn() {
 
         computerBoard.style.pointerEvents = 'auto';
     }
+    header.textContent = "Player Turn";
 }
 
 let isPlacingShips = true;
