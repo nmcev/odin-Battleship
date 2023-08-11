@@ -19,3 +19,25 @@ const computerCells = document.querySelectorAll('#computerBoard > .cell');
 const playerBoardDiv = document.querySelectorAll("#playerBoard > .cell");
 computerBoard.style.cursor = "pointer"
 stylingBoards();
+
+function computerTurn() {
+    const computerAttacked = computer.takeTurn(playerGameboard);
+    const row = computerAttacked.x;
+    const col = computerAttacked.y;
+    const index = row * 10 + col;
+
+
+    if (computerAttacked.isSuccessful) {
+        markComputerCell(playerBoardDiv, index, true);
+
+        if (playerGameboard.checkingBoard()) {
+            alert("Computer Won");
+        }
+        setTimeout(computerTurn, 1000);
+    } else {
+        markComputerCell(playerBoardDiv, index, false);
+        console.log(`Computer missed at: (${row}, ${col})`);
+
+        computerBoard.style.pointerEvents = 'auto';
+    }
+}
