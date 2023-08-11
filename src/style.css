@@ -1,0 +1,9 @@
+@font-face {
+    font-family: myFont;
+    src: url('../assets/resource/font.ttf');
+}
+
+#topic {
+    font-family: myFont;
+    color:#cccc00!important ;
+}
