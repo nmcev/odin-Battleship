@@ -6,7 +6,7 @@ const header = document.querySelector('#header');
 const container = document.getElementById('container');
 import backgroundImage from '../assets/resource/background.svg';
 import shipImage from '../assets/resource/ship.svg';
-import skullImage from '../assets/resource/skull.svg';
+import skullImage from '../assets/resource/hunted.svg';
 import crossMark from '../assets/resource/cross.svg';
 
 
