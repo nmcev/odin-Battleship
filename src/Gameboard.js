@@ -13,7 +13,6 @@ export class createGameboard {
   }
   placeShipsRandomly(shipLength) {
     for (length of shipLength) {
-      console.log(length)
       let isPlaced = false;
       while (!isPlaced) {
         const row = Math.floor(Math.random() * 10)
@@ -29,10 +28,7 @@ export class createGameboard {
   placeShipAt(x, y, length, isHorizontal = true) {
     const newShip = new Ship(length);
 
-    if (x < 0 || x >= 10 || y < 0 || y >= 10) {
-      console.log('Cannot place ship outside of the board');
-      return;
-    }
+
 
     for (let i = 0; i < length; i++) {
       const targetX = isHorizontal ? x + i : x;
@@ -59,17 +55,12 @@ export class createGameboard {
     if (x >= 0 && x < 10 && y >= 0 && y < 10) {
       const shipToAttack = this.array10x10[x][y];
       if (!shipToAttack) {
-        console.log('No ship there');
         this.missedAttack.push({ x, y });
         return false;
       }
 
-      console.log(`hits: ${shipToAttack.hit()}`);
-      console.log(`Is Sunk: ${shipToAttack.isSunk()}`);
-      console.log(`hit (${x}, ${y})`)
+
       return true;
-    } else {
-      console.log('Invalid coordinates. Attack inside the gameBoard');
     }
   }
 
