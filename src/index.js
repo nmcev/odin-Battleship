@@ -22,24 +22,28 @@ stylingBoards();
 
 computerCells.forEach(cell => {
     cell.addEventListener('click', () => {
-        const row = Number(cell.dataset.row);
-        const col = Number(cell.dataset.col);
+        if (playerGameboard.ships.length == 5) {
+            const row = Number(cell.dataset.row);
+            const col = Number(cell.dataset.col);
 
-        const playerAttacked = computerGameboard.receiveAttack(row, col);
+            const playerAttacked = computerGameboard.receiveAttack(row, col);
 
-        if (playerAttacked) {
-            markCell(cell, true);
-            if (computerGameboard.checkingBoard()) {
-                alert("Player won!");
-                computerBoard.style.pointerEvents = "none";
+            if (playerAttacked) {
+                markCell(cell, true);
+                if (computerGameboard.checkingBoard()) {
+                    alert("Player won!");
+                    computerBoard.style.pointerEvents = "none";
+                } else {
+                    computerBoard.style.pointerEvents = "auto";
+
+                }
             } else {
-                computerBoard.style.pointerEvents = "auto";
-
+                markCell(cell, false);
+                computerBoard.style.pointerEvents = "none";
+                setTimeout(computerTurn, 1000);
             }
         } else {
-            markCell(cell, false);
-            computerBoard.style.pointerEvents = "none";
-            setTimeout(computerTurn, 1000);
+            alert("Not enough ships to attack!")
         }
     }, { once: true });
 });
