@@ -20,6 +20,30 @@ const playerBoardDiv = document.querySelectorAll("#playerBoard > .cell");
 computerBoard.style.cursor = "pointer"
 stylingBoards();
 
+computerCells.forEach(cell => {
+    cell.addEventListener('click', () => {
+        const row = Number(cell.dataset.row);
+        const col = Number(cell.dataset.col);
+
+        const playerAttacked = computerGameboard.receiveAttack(row, col);
+
+        if (playerAttacked) {
+            markCell(cell, true);
+            if (computerGameboard.checkingBoard()) {
+                alert("Player won!");
+                computerBoard.style.pointerEvents = "none";
+            } else {
+                computerBoard.style.pointerEvents = "auto";
+
+            }
+        } else {
+            markCell(cell, false);
+            computerBoard.style.pointerEvents = "none";
+            setTimeout(computerTurn, 1000);
+        }
+    }, { once: true });
+});
+
 function computerTurn() {
     const computerAttacked = computer.takeTurn(playerGameboard);
     const row = computerAttacked.x;
