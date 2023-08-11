@@ -2,7 +2,8 @@ export const computerBoard = document.getElementById('computerBoard')
 export const playerBoard = document.getElementById('playerBoard'); // Assuming there's an element with the ID 'player-board' in the HTML file
 const content = document.getElementById('content');
 const body = document.querySelector('body')
-const header = document.querySelector('#header')
+const header = document.querySelector('#header');
+const container = document.getElementById('container');
 import backgroundImage from '../assets/resource/background.svg';
 import shipImage from '../assets/resource/ship.svg';
 import skullImage from '../assets/resource/skull.svg';
@@ -30,7 +31,6 @@ export function renderGameBoardOF(elementToAppend) {
 }
 
 export function stylingBoards() {
-    body.style.height = '100vh'
     body.style.margin = '0'
     body.style.backgroundImage = `url(${backgroundImage})`;
     body.style.backgroundSize = "cover";
@@ -38,7 +38,7 @@ export function stylingBoards() {
     content.style.display = 'flex'
     content.style.justifyContent = 'center'
     content.style.alignItems = 'center'
-    content.style.height = '100vh'
+    // content.style.height = '100vh'
     content.style.gap = '1.82rem'
     playerBoard.style.maxWidth = '550px'
     computerBoard.style.maxWidth = '550px'
@@ -113,6 +113,18 @@ export function renderButtonForOrientation() {
     orientationContainer.style.display = 'flex';
     orientationContainer.style.alignItems = 'center';
     orientationContainer.style.marginRight = '10px';
+
+    // place the input
+    body.style.overflowY = 'hidden'
+    horizontalLabel.style.color = "#eee";
+    verticalLabel.style.color = '#eee';
+    body.style.height = '100vh';
+    body.style.display = 'flex';
+    body.style.flexDirection = 'column';
+    body.style.justifyContent = 'center';
+    body.style.alignItems = 'center';
+    header.style.marginRight = '60rem';
+    header.style.marginBottom = '1rem';d
 
     const buttonStyle = 'margin-right: 5px; cursor: pointer;';
     horizontalButton.style = buttonStyle;
