@@ -65,3 +65,32 @@ function computerTurn() {
         computerBoard.style.pointerEvents = 'auto';
     }
 }
+
+let isPlacingShips = true;
+const shipLengths = [5, 4, 3, 3, 2];
+let currentShipIndex = 0;
+
+playerBoardDiv.forEach(cell => {
+    cell.addEventListener('click', () => {
+        if (isPlacingShips) {
+            const row = Number(cell.dataset.row);
+            const col = Number(cell.dataset.col);
+            let shipLength = shipLengths[currentShipIndex];
+            const placementResult = playerGameboard.placeShipAt(row, col, shipLength, verticalButton.checked);
+
+            if (placementResult) {
+                // checking if it placed 
+                updatePlayerBoardDOM(playerGameboard.array10x10)
+                currentShipIndex++;
+
+                if (currentShipIndex === shipLengths.length) {
+                    isPlacingShips = false;
+                    console.log(playerGameboard.ships)
+                }
+            } else {
+                console.log(`Cannot place ship at (${row}, ${col})`);
+            }
+
+        }
+    });
+});
