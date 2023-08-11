@@ -2,12 +2,13 @@ export const computerBoard = document.getElementById('computerBoard')
 export const playerBoard = document.getElementById('playerBoard'); // Assuming there's an element with the ID 'player-board' in the HTML file
 const content = document.getElementById('content');
 const body = document.querySelector('body')
-const header = document.querySelector('#header');
-const container = document.getElementById('container');
+export const header = document.querySelector('#header');
+const topic = document.getElementById('topic');
 import backgroundImage from '../assets/resource/background.svg';
 import shipImage from '../assets/resource/ship.svg';
 import skullImage from '../assets/resource/hunted.svg';
 import crossMark from '../assets/resource/cross.svg';
+import './style.css'
 
 
 export function renderGameBoardOF(elementToAppend) {
@@ -118,7 +119,7 @@ export function renderButtonForOrientation() {
     body.style.overflowY = 'hidden'
     horizontalLabel.style.color = "#eee";
     verticalLabel.style.color = '#eee';
-    body.style.height = '100vh';
+    body.style.height = '90vh';
     body.style.display = 'flex';
     body.style.flexDirection = 'column';
     body.style.justifyContent = 'center';
@@ -158,4 +159,13 @@ export function renderButtonForOrientation() {
     });
 
 }
+
+function topicSection() {
+    topic.textContent = "Battle Ship";
+    topic.style.marginBottom = '4rem';
+    topic.style.fontSize = '3rem';
+    topic.style.fontWeight = '700';
+    topic.style.color = "#d0d0d0";
+}
+topicSection();
 renderButtonForOrientation();
