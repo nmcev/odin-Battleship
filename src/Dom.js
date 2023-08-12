@@ -124,7 +124,7 @@ export function renderButtonForOrientation() {
     body.style.flexDirection = 'column';
     body.style.justifyContent = 'center';
     body.style.alignItems = 'center';
-    header.style.marginRight = '60rem';
+    header.style.marginRight = '0rem';
     header.style.marginBottom = '1rem';
 
     const buttonStyle = 'margin-right: 5px; cursor: pointer;';
