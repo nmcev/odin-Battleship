@@ -19,3 +19,10 @@ To make a guess, a player chooses a row and column on the grid. If their guess i
 The game ends when one player has sunk all of their opponent's ships. The player who sinks all of their opponent's ships first wins the game.
 
 This version of Game made to be opponent AI
+
+### Live Preview: 
+[Battleship Demo](https://nmcev.github.io/odin-battleship/dist/index.html)
+
+# This
+game was created with the help of [Odin Project](https://www.theodinproject.com/dashboard) as walking with the curriculum of [JavaScript Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) specifcly this [lesson(Project)](https://www.theodinproject.com/lessons/node-path-javascript-battleship) <br>
+game was created by ***<NAME>Muha</NAME>***
