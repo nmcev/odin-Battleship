@@ -36,5 +36,5 @@ This version of Game made to be opponent AI
 [Battleship Demo](https://nmcev.github.io/odin-battleship/dist/index.html)
 
 # This
-game was created with the help of [Odin Project](https://www.theodinproject.com/dashboard) as walking with the curriculum of [JavaScript Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) specifcly this [lesson(Project)](https://www.theodinproject.com/lessons/node-path-javascript-battleship) <br>
+game was created with the help of [Odin Project](https://www.theodinproject.com/dashboard) as walking with the curriculum of [JavaScript Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) specifically this [lesson(Project)](https://www.theodinproject.com/lessons/node-path-javascript-battleship) <br>
 game was created by ***<NAME>Muha</NAME>***
