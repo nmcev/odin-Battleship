@@ -50,7 +50,7 @@ computerCells.forEach(cell => {
             alert("Not enough ships to attack!")
         }
 
-    }, { once: true });
+    });
 });
 
 function computerTurn() {
