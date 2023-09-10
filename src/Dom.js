@@ -4,7 +4,6 @@ const content = document.getElementById('content');
 const body = document.querySelector('body')
 export const header = document.querySelector('#header');
 const topic = document.getElementById('topic');
-import backgroundImage from '../assets/resource/background.svg';
 import shipImage from '../assets/resource/ship.svg';
 import skullImage from '../assets/resource/hunted.svg';
 import crossMark from '../assets/resource/cross.svg';
@@ -29,21 +28,6 @@ export function renderGameBoardOF(elementToAppend) {
         cell.style.float = 'left';
         elementToAppend.appendChild(cell);
     }
-}
-
-export function stylingBoards() {
-    body.style.margin = '0'
-    body.style.backgroundImage = `url(${backgroundImage})`;
-    body.style.backgroundSize = "cover";
-
-    content.style.display = 'flex'
-    content.style.justifyContent = 'center'
-    content.style.alignItems = 'center'
-    // content.style.height = '100vh'
-    content.style.gap = '1.82rem'
-    playerBoard.style.maxWidth = '550px'
-    computerBoard.style.maxWidth = '550px'
-
 }
 
 export function markCell(cell, hit) {
@@ -119,11 +103,6 @@ export function renderButtonForOrientation() {
     body.style.overflowY = 'hidden'
     horizontalLabel.style.color = "#eee";
     verticalLabel.style.color = '#eee';
-    body.style.height = '90vh';
-    body.style.display = 'flex';
-    body.style.flexDirection = 'column';
-    body.style.justifyContent = 'center';
-    body.style.alignItems = 'center';
     header.style.marginRight = '0rem';
     header.style.marginBottom = '1rem';
 
@@ -162,64 +141,7 @@ export function renderButtonForOrientation() {
 
 function topicSection() {
     topic.textContent = "Battle Ship";
-    topic.style.marginBottom = '4rem';
-    topic.style.fontSize = '3rem';
-    topic.style.fontWeight = '700';
-    topic.style.color = "#cccc00";
 }
-
-function mediaQuery(vw) {
-    const cells = document.querySelectorAll('.cell');
-    if (vw.matches) {
-        cells.forEach(cell => {
-            cell.style.width = "22px";
-            cell.style.height = "22px";
-            cell.style.border = "1px solid #eee";
-            cell.style.display = "inline-block";
-            cell.style.float = 'left';
-            computerBoard.style.width = '250px';
-            computerBoard.style.height = '250px';
-            playerBoard.style.width = '250px';
-            playerBoard.style.height = '250px';
-            content.style.gap = '1rem';
-            content.style.display = 'flex'
-            content.style.justifyContent = 'center'
-            content.style.alignItems = 'center'
-            content.style.flexDirection = 'column';
-            header.style.marginRight = '0';
-
-        });
-    } else {
-        cells.forEach(cell => {
-
-            cell.style.width = "50px";
-            cell.style.height = "50px";
-            cell.style.border = "1px solid #eee";
-            cell.style.display = "inline-block";
-            cell.style.float = 'left';
-            // ... reset other cell styles
-
-            // Reset board sizes
-            computerBoard.style.width = ''; // Reset to original size (unset width)
-            computerBoard.style.height = ''; // Reset to original size (unset height)
-            playerBoard.style.width = ''; // Reset to original size (unset width)
-            playerBoard.style.height = ''; // Reset to original size (unset height)
-
-            // Reset content layout
-            content.style.gap = '1.82rem';
-            content.style.display = 'flex';
-            content.style.justifyContent = 'center';
-            content.style.alignItems = 'center';
-            content.style.flexDirection = '';
-            header.style.marginRight = '60rem';
-        });
-    }
-}
-
-// Create the media query
-const vw = window.matchMedia("(max-width: 481px)");
-vw.addEventListener('change', mediaQuery);
-mediaQuery(vw)
 
 topicSection();
 renderButtonForOrientation();
