@@ -1,7 +1,7 @@
 import { Player } from './Player';
-import { renderGameBoardOF, stylingBoards, computerBoard, playerBoard, markCell, markComputerCell, updatePlayerBoardDOM, horizontalButton, verticalButton, header } from './Dom';
+import { renderGameBoardOF, computerBoard, playerBoard, markCell, markComputerCell, updatePlayerBoardDOM, horizontalButton, verticalButton, header } from './Dom';
 import { createGameboard } from './Gameboard';
-
+import './style.css'
 // Step 1: Create players
 const player = new Player();
 const computer = new Player();
@@ -18,7 +18,6 @@ renderGameBoardOF(computerBoard);
 const computerCells = document.querySelectorAll('#computerBoard > .cell');
 const playerBoardDiv = document.querySelectorAll("#playerBoard > .cell");
 computerBoard.style.cursor = "pointer"
-stylingBoards();
 
 computerCells.forEach(cell => {
     cell.addEventListener('click', () => {
