@@ -18,6 +18,7 @@ renderGameBoardOF(computerBoard);
 const computerCells = document.querySelectorAll('#computerBoard > .cell');
 const playerBoardDiv = document.querySelectorAll("#playerBoard > .cell");
 computerBoard.style.cursor = "pointer"
+const h1 = document.getElementById('header');
 
 computerCells.forEach(cell => {
     cell.addEventListener('click', () => {
@@ -94,6 +95,15 @@ playerBoardDiv.forEach(cell => {
 
                 if (currentShipIndex === shipLengths.length) {
                     isPlacingShips = false;
+
+                    h1.textContent = "You can play now";
+                    h1.style.color = "#eee";
+                    h1.style.fontSize = "2rem";
+                    h1.style.fontWeight = "bold";
+                    h1.style.textAlign = "center";
+                    h1.style.marginTop = "2rem";
+                    h1.style.marginBottom = "2rem";
+
                 }
             } else {
                 console.log(`Cannot place ship at (${row}, ${col})`);
